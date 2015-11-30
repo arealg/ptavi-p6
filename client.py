@@ -34,4 +34,5 @@ if ('100 Trying' in ack_msg and '180 Ring' in ack_msg
                    + 'SIP/2.0', 'utf-8')
                    + b'\r\n')
 
+print('Finalizado')
 my_socket.close()
