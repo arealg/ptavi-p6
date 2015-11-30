@@ -19,6 +19,7 @@ class EchoHandler(socketserver.DatagramRequestHandler):
             if not line:
                 break
             linea = line.decode('utf-8')
+            print(linea)
             lista = linea.split()
             if lista[0] == 'INVITE' or lista[0] == 'ACK' or lista[0] == 'BYE':
                 pass
@@ -38,7 +39,6 @@ class EchoHandler(socketserver.DatagramRequestHandler):
                 + b'\r\n\r\n')
 
             elif 'ACK' in lista:
-                print('\r\n\r\n' + linea + '\r\n\r\n')
                 os.system('./mp32rtp -i 127.0.0.1 -p 23032 < ' + sys.argv[3])
 
             elif 'BYE' in lista:
