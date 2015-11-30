@@ -28,8 +28,7 @@ data = my_socket.recv(1024)
 print(data.decode('utf-8'))
 ack_msg = data.decode('utf-8')
 
-if ('100 Trying' in ack_msg and '180 Ring' in ack_msg
-    and '200 OK' in ack_msg):
+if ('100 Trying' in ack_msg and '180 Ring' in ack_msg and '200 OK' in ack_msg):
     my_socket.send(bytes('ACK' + ' ' + 'sip:' + LOGIN + ' '
                    + 'SIP/2.0', 'utf-8')
                    + b'\r\n')
